@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="LOG_DIR">logs</Property>
+		<Property name="APPLOGFILENAME">camel_cdi_fileProducer.log</Property>
+		<Property name="MESSAGELOGFILENAME">camel_cdi_fileProducer_message.log
+		</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="AppFileAppender"
+			fileName="${LOG_DIR}/${APPLOGFILENAME}"
+			filePattern="${LOG_DIR}/${APPLOGFILENAME}.%i"
+			ignoreExceptions="false" immediateFlush="true">
+			<PatternLayout
+				pattern="%d{ISO8601};%t;%x;%c{1};%M;%1p;-%m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+		<RollingFile name="MessageFileAppender"
+			fileName="${LOG_DIR}/${MESSAGELOGFILENAME}"
+			filePattern="${LOG_DIR}/${MESSAGELOGFILENAME}.%i"
+			ignoreExceptions="false" immediateFlush="true">
+			<PatternLayout
+				pattern="%d{ISO8601};%t;%x;%c{1};%M;%1p;-%m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{ISO8601};%t;%x;%c{1};%M;%1p;-%m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="de.camel_proto.fileproducer" level="info"
+			additivity="false">
+			<AppenderRef ref="AppFileAppender" />
+		</Logger>
+		<Logger name="messages" level="info" additivity="false">
+			<AppenderRef ref="MessageFileAppender" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="AppFileAppender" />
+		</Root>
+	</Loggers>
+</Configuration>

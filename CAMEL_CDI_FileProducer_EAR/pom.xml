@@ -1,0 +1,26 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.camel_proto</groupId>
+		<artifactId>CAMEL_CDI_FileProducer</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>CAMEL_CDI_FileProducer_EAR</artifactId>
+	<packaging>ear</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<!-- Andere Dependencies -->
+		<dependency>
+			<groupId>de.camel_proto</groupId>
+			<artifactId>CAMEL_CDI_FileProducer_EJB</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<!-- Typangabe für Bekanntmachung in application.xml notwendig -->
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+</project>

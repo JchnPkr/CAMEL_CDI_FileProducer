@@ -1,0 +1,8 @@
+# Ignore files and folders
+# https://git-scm.com/docs/gitignore
+**/target/
+**/.classpath
+**/.settings/
+**/.project
+**/.factorypath
+**/*.class
